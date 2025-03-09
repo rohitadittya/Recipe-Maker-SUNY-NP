@@ -1,0 +1,114 @@
+html * {
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #eae7dc;
+}
+
+.navbar {
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  li:first-child {
+    /* This first element holds the logo */
+    flex-grow: 1;
+  }
+
+  ul li {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0 10px;
+  }
+
+  .logo {
+    max-width: 40px;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  a {
+    text-decoration: none;
+    padding: 5px;
+    color: #6e6d67;
+    border-bottom: 1px solid #8e8d8a;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: #030202;
+  }
+}
+
+.common_form {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+
+  label {
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  input {
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #8e8d8a;
+  }
+
+  button {
+    background: #d8c3a5;
+    padding: 10px;
+    cursor: pointer;
+    color: rgb(44, 42, 42);
+    border-radius: 6px;
+    border: none;
+  }
+
+  button:hover {
+    background: #d5bc99;
+  }
+}
+
+.register_container {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+
+  .register_header {
+    h3 {
+      color: #6e6d67;
+    }
+  }
+}
+
+.login_container {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+
+  .login_header {
+    h3 {
+      color: #6e6d67;
+    }
+  }
+}
+
+.post_recipe_container {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+
+  .post_recipe_header {
+    h3 {
+      color: #6e6d67;
+    }
+  }
+}
