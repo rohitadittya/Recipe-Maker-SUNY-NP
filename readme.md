@@ -10,5 +10,7 @@ Welcome to Recipe Maker—a social media application that brings food lovers tog
 Integrate AI feature, where users can input available ingredients, and the application generates possible recipes in real-time.
 
 ## ERD:
+![ERD](https://github.com/user-attachments/assets/656bd39e-171d-4063-a537-9a3a4efd4bb3)
 
 ## Relations:
+![Recipe_Maker_Relation_diagram](https://github.com/user-attachments/assets/90b1deef-2a6a-4972-9fb2-a87edb551fd0)
