@@ -13,4 +13,5 @@ Integrate AI feature, where users can input available ingredients, and the appli
 ![ERD](https://github.com/user-attachments/assets/656bd39e-171d-4063-a537-9a3a4efd4bb3)
 
 ## Relations:
-![Recipe_Maker_Relation_diagram](https://github.com/user-attachments/assets/90b1deef-2a6a-4972-9fb2-a87edb551fd0)
+![image](https://github.com/user-attachments/assets/0ab14785-c11b-4bd2-bb4a-9749c90a8a15)
+
