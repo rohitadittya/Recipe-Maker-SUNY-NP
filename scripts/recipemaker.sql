@@ -1,0 +1,52 @@
+CREATE DATABASE recipemaker;
+
+CREATE TABLE USER (
+	UserId INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(25) NOT NULL,
+    FirstName VARCHAR(25) NOT NULL,
+    LastName VARCHAR(25) NOT NULL,
+    Email VARCHAR(25) NOT NULL,
+    Password VARCHAR(25) NOT NULL,
+    CreatedTimeStamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    DeletedTimeStamp DATETIME
+);
+
+CREATE TABLE RECIPE (
+    RecipeId INT PRIMARY KEY AUTO_INCREMENT,
+    RecipeName VARCHAR(25) NOT NULL,
+    Description TEXT,
+    Ingredients TEXT NOT NULL,
+    Instructions TEXT NOT NULL,
+    Image BLOB,
+    CreatedTimestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    DeletedTimeStamp DATETIME,
+    UserId INT,
+    FOREIGN KEY (UserId) REFERENCES USER(UserId)
+);
+
+CREATE TABLE Comment (
+    CommentId INT PRIMARY KEY AUTO_INCREMENT,
+    Comments VARCHAR(255) NOT NULL,
+    CreatedTimestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    DeletedTimeStamp DATETIME,
+    RecipeId INT,
+    UserId INT,
+    FOREIGN KEY (RecipeId) REFERENCES RECIPE(RecipeId),
+    FOREIGN KEY (UserId) REFERENCES USER(UserId)
+);
+
+CREATE TABLE USER_RECIPE_LIKE (
+    UserId INT,
+    RecipeId INT,
+    PRIMARY KEY (UserId, RecipeId),
+    FOREIGN KEY (UserId) REFERENCES USER(UserId),
+    FOREIGN KEY (RecipeId) REFERENCES RECIPE(RecipeId)
+);
+
+CREATE TABLE USER_RECIPE_FAVORITE (
+    UserId INT,
+    RecipeId INT,
+    PRIMARY KEY (UserId, RecipeId),
+    FOREIGN KEY (UserId) REFERENCES USER(UserId),
+    FOREIGN KEY (RecipeId) REFERENCES RECIPE(RecipeId)
+);
