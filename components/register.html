@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/style.css" />
+    <script type="module" src="../scripts/register.js" defer></script>
     <title>Register</title>
   </head>
   <body>
@@ -21,7 +22,7 @@
         <h3>Register</h3>
       </div>
 
-      <form class="register_form common_form" action="login.html">
+      <form class="register_form common_form" id="registerForm">
         <label for="firstname">First Name:</label>
         <input type="text" id="firstname" name="firstname" required />
         <br />
@@ -34,7 +35,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required />
         <br />
-        <button type="submit">Register</button>
+        <button type="submit" id="registerBtn">Register</button>
       </form>
     </div>
   </body>

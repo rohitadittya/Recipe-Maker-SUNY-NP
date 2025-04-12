@@ -15,4 +15,4 @@ Integrate AI feature, where users can input available ingredients, and the appli
 ## Relations:
 ![image](https://github.com/user-attachments/assets/0ab14785-c11b-4bd2-bb4a-9749c90a8a15)
 
-You can find SQL Scripts [here](https://github.com/rohitadittya/Recipe-Maker-SUNY-NP/blob/main/scripts/recipemaker.sql)
+You can find SQL Scripts [here](https://github.com/rohitadittya/Recipe-Maker-SUNY-NP/blob/main/sql/recipemaker.sql)
