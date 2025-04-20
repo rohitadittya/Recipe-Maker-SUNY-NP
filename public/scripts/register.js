@@ -15,5 +15,5 @@ registerForm.addEventListener('submit', (e) => {
     const user = registerUser(new User(firstname, lastname, email, password));
     console.log("User created",user);
     window.alert("User created successfully. Please login to continue.");
-    window.location.href = '/components/login.html';
+    window.location.href = '/public/components/login.html';
 });

@@ -1,0 +1,7 @@
+`CREATE TABLE IF NOT EXISTS USER_RECIPE_LIKE (
+    UserId INT,
+    RecipeId INT,
+    PRIMARY KEY (UserId, RecipeId),
+    FOREIGN KEY (UserId) REFERENCES USER(UserId),
+    FOREIGN KEY (RecipeId) REFERENCES RECIPE(RecipeId)
+);`

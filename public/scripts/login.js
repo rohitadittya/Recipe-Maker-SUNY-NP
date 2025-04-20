@@ -15,5 +15,5 @@ loginForm.addEventListener('submit', (e) => {
         window.alert("No user found with the given credentials. Please try again.");
         return;
     }
-    window.location.href = '/components/post_recipe.html';
+    window.location.href = '/public/components/post_recipe.html';
 });

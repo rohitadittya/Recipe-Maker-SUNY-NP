@@ -9,7 +9,7 @@ const loggedInUser = window.sessionStorage.getItem(SESSION_STORAGE_KEYS.LOGGED_I
 const onload = () => {
     if (!loggedInUser) {
         window.alert("You are not logged in. Please login to continue.");
-        window.location.href = '/components/login.html';
+        window.location.href = '/public/components/login.html';
         return;
     }
     window.alert(`Hi ${loggedInUser}, Welcome to the recipe app!`)
@@ -32,7 +32,7 @@ recipeForm.addEventListener('submit', (e) => {
 logout_anchor.addEventListener('click', (e) => {
     e.preventDefault();
     window.sessionStorage.removeItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER);
-    window.location.href = '/components/login.html';
+    window.location.href = '/public/components/login.html';
 });
 
 onload();

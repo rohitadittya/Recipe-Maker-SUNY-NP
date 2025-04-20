@@ -1,0 +1,10 @@
+`CREATE TABLE IF NOT EXISTS Comment (
+    CommentId INT PRIMARY KEY AUTO_INCREMENT,
+    Comments VARCHAR(255) NOT NULL,
+    CreatedTimestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    DeletedTimeStamp DATETIME,
+    RecipeId INT,
+    UserId INT,
+    FOREIGN KEY (RecipeId) REFERENCES RECIPE(RecipeId),
+    FOREIGN KEY (UserId) REFERENCES USER(UserId)
+);`
