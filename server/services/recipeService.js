@@ -1,4 +1,5 @@
 const recipeModel = require('../models/recipe');
+const { getLoggedInUserId } = require('../utils/utils');
 
 const fetchRecipeById = async (req) => {
     const recipe = await recipeModel.fetchRecipeById(req.params.id);
@@ -20,7 +21,8 @@ const addRecipe = async (req) => {
         req.body.ingredients,
         req.body.instructions,
         req.body.image,
-        req.loggedInUserId);
+        getLoggedInUserId(req)
+    );
     if (!recipe) {
         throw { message: 'Unable to create recipe', status: 500 };
     }

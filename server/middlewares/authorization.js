@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { setLoggedInUserId } = require('../utils/utils');
 
 const isAuthorizedUser = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
@@ -8,7 +9,7 @@ const isAuthorizedUser = (req, res, next) => {
 
     try {
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-        req.loggedInUserId = decodedToken.userId;
+        setLoggedInUserId(req, decodedToken.userId);
         next();
     }
     catch (err) {
