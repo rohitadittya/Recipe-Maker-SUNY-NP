@@ -1,7 +1,0 @@
-`CREATE TABLE IF NOT EXISTS USER_RECIPE_FAVORITE (
-    UserId INT,
-    RecipeId INT,
-    PRIMARY KEY (UserId, RecipeId),
-    FOREIGN KEY (UserId) REFERENCES USER(UserId),
-    FOREIGN KEY (RecipeId) REFERENCES RECIPE(RecipeId)
-);`
