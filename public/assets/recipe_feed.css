@@ -1,0 +1,133 @@
+.recipe_feed_container,
+.my_recipe_container,
+.recipe_comment_container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+
+    .recipe_card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .recipe_card_title {
+            text-align: center;
+        }
+    }
+
+    .recipe_image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .recipe_name {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .recipe_description {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .recipe_section {
+        margin-bottom: 10px;
+    }
+
+    .section_title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .recipe_btn {
+        padding: 8px 16px;
+        margin: 5px 5px 0 0;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .recipe_delete_btn {
+        background-color: #edbabe;
+        color: #721c24;
+    }
+
+    .recipe_delete_btn:hover {
+        background-color: #e8abb1;
+    }
+
+    .recipe_edit_btn {
+        background-color: #aad4dc;
+        color: #0c5460;
+    }
+
+    .recipe_edit_btn:hover {
+        background-color: #a9e6f0;
+    }
+
+    .recipe_liked {
+        background-color: #f7cac9 !important;
+    }
+
+    .recipe_likeUnlike_btn {
+        background-color: #e0dada;
+        color: #912f40;
+    }
+
+    .recipe_likeUnlike_btn:hover {
+        background-color: #f4b6b4;
+    }
+
+    .recipe_comment_btn {
+        background-color: #5e92ad;
+        color: white;
+    }
+
+    .recipe_comment_btn:hover {
+        background-color: #4f7487;
+    }
+
+    .recipe_comment_section {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #f9f9f9;
+
+        .recipe_comment_list {
+            margin-top: 10px;
+            overflow-y: scroll;
+            max-height: 250px;
+            border-radius: 8px;
+        }
+
+        .recipe_add_comment {
+            margin-bottom: 12px;
+
+            #commentInput {
+                width: 95%;
+                padding: 8px;
+                margin-bottom: 8px;
+                resize: none;
+            }
+        }
+
+        .recipe_comment_item {
+            background: #fff;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+    }
+}

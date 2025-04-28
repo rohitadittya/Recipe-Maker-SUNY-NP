@@ -3,25 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/style.css" />
-    <script type="module" src="../scripts/post_recipe.js" defer></script>
-    <title>Post a recipe</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="module" src="/scripts/post_recipe.js" defer></script>
+    <title>Post/ edit a recipe</title>
   </head>
   <body>
     <div class="navbar">
       <nav>
         <ul>
-          <li><img class="logo" src="../assets/images/logo.jpeg" /></li>
+          <li><img class="logo" src="/assets/images/logo.jpeg" /></li>
+          <li><a href="/components/my_recipes.html">My recipes</a></li>
+          <li><a href="/components/recipe_feed.html">Feed</a></li>
           <li><a href="#" id="logout_anchor">Logout</a></li>
         </ul>
       </nav>
     </div>
-    <div class="post_recipe_container">
-      <div class="post_recipe_header">
-        <h3>Post a recipe</h3>
+    <div class="upsert_recipe_container">
+      <div>
+        <h3 class="upsert_recipe_header" id="upsertRecipeHeader">Post a recipe</h3>
       </div>
 
-      <form class="post_recipe_form common_form" id="postRecipeForm">
+      <form class="upsert_recipe_form common_form" id="upsertRecipeForm">
+        <input type="hidden" id="recipeId" name="recipeId" value="" />
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required />
         <br />

@@ -1,0 +1,23 @@
+.register_container {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+  
+    .register_header {
+      h3 {
+        color: #6e6d67;
+      }
+    }
+  }
+  
+  .login_container {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+  
+    .login_header {
+      h3 {
+        color: #6e6d67;
+      }
+    }
+  }

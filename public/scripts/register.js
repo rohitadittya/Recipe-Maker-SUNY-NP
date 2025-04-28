@@ -4,16 +4,21 @@ import { registerUser } from "../services/user.service.js";
 
 const registerForm = document.getElementById("registerForm");
 
-registerForm.addEventListener('submit', (e) => {
+registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const username = document.getElementById("username").value;
     const firstname = document.getElementById("firstname").value;
     const lastname = document.getElementById("lastname").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    // service function to register user - which later handles the API call
-    const user = registerUser(new User(firstname, lastname, email, password));
-    console.log("User created",user);
-    window.alert("User created successfully. Please login to continue.");
-    window.location.href = '/public/components/login.html';
+    try {
+        await registerUser(new User(username, firstname, lastname, email, password));
+        window.location.href = '/components/post_recipe.html';
+        return;
+    }
+    catch (error) {
+        console.error("Error during registration:", error?.message);
+        return;
+    }
 });

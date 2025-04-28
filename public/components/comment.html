@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="/assets/recipe_feed.css" />
+    <script type="module" src="/scripts/comment.js" defer></script>
+    <title>Share your comment</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <nav>
+            <ul>
+                <li><img class="logo" src="/assets/images/logo.jpeg" /></li>
+                <li><a href="/components/post_recipe.html">Post a recipe</a></li>
+                <li><a href="/components/my_recipes.html">My recipes</a></li>
+                <li><a href="/components/recipe_feed.html">Feed</a></li>
+                <li><a href="#" id="logout_anchor">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="recipe_comment_container" id="recipeCommentContainer">
+        <!-- The selected recipe and comments will be rendered here -->
+        <div class="recipe_comment_feed" id="recipeCommentFeed"></div>
+        <div class="recipe_comment_section" id="recipeCommentSection">
+            <h2>Comments</h2>
+            <div class="recipe_add_comment">
+                <textarea id="commentInput" placeholder="Write a comment..." rows="4"></textarea>
+                <button id="commentBtn" class="recipe_comment_btn recipe_btn">Comment</button>
+            </div>
+            <div id="recipeCommentsList" class="recipe_comment_list">
+                <!-- Comments will be rendered here -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

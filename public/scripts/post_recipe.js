@@ -1,38 +1,76 @@
 import Recipe from "../model/recipe.js";
-import { addRecipe } from "../services/recipe.service.js";
-import { SESSION_STORAGE_KEYS } from "./util.js";
+import { addRecipe, getRecipeById, updateRecipeById } from "../services/recipe.service.js";
+import { authGuard, logoutUser } from "../services/user.service.js";
 
-const recipeForm = document.getElementById('postRecipeForm');
+const recipeForm = document.getElementById('upsertRecipeForm');
+const upsertHeaderElement = document.getElementById('upsertRecipeHeader');
 const logout_anchor = document.getElementById('logout_anchor');
-const loggedInUser = window.sessionStorage.getItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER) || false;
 
-const onload = () => {
-    if (!loggedInUser) {
-        window.alert("You are not logged in. Please login to continue.");
-        window.location.href = '/public/components/login.html';
-        return;
+let editMode = false;
+
+const onload = async () => {
+    authGuard(); //check if the user is logged in, jwt token expired
+
+    const queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.has('recipeId') && queryParams.get('recipeId') !== "") {
+        const recipeId = queryParams.get('recipeId');
+        editMode = true;
+        await renderRecipeForEdit(recipeId);
+        console.log("Editing recipe with ID:", recipeId);
     }
-    window.alert(`Hi ${loggedInUser}, Welcome to the recipe app!`)
-    console.log("LOGGED IN User ", loggedInUser);
 };
 
-recipeForm.addEventListener('submit', (e) => {
+const renderRecipeForEdit = async (recipeId) => {
+    try {
+        const recipe = await getRecipeById(recipeId);
+        upsertHeaderElement.innerText = "Edit Recipe";
+        if (recipe) {
+            document.getElementById("recipeId").value = recipe.recipeId;
+            document.getElementById("title").value = recipe.title;
+            document.getElementById("description").value = recipe.description;
+            document.getElementById("ingredients").value = recipe.ingredients;
+            document.getElementById("instructions").value = recipe.instructions;
+        } else {
+            console.error("Recipe not found for editing:", recipeId);
+        }
+    }
+    catch (error) {
+        editMode=false;
+        console.error("Error fetching recipe for edit:", error?.message);
+        return;
+    }
+};
+
+recipeForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const ingredients = document.getElementById("ingredients").value;
     const instructions = document.getElementById("instructions").value;
-
-    // service function to create a recipe - which later handles the API call
-    const recipe = addRecipe(new Recipe(title, description, ingredients, instructions));
-    console.log("Recipe created", recipe);
-    recipeForm.reset();
+    
+    try {
+        if (editMode) {
+            const recipeId = document.getElementById("recipeId").value;
+            await updateRecipeById(recipeId, new Recipe(title, description, ingredients, instructions));
+            console.log("Recipe updated successfully:");
+        }
+        else {
+            await addRecipe(new Recipe(title, description, ingredients, instructions));
+            console.log("Recipe created successfully:");
+        }
+        
+        window.location.href = '/components/my_recipes.html';
+        recipeForm.reset();
+    }
+    catch (error) {
+        console.error("Error during recipe creation:", error?.message);
+        return;
+    }
 });
 
 logout_anchor.addEventListener('click', (e) => {
     e.preventDefault();
-    window.sessionStorage.removeItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER);
-    window.location.href = '/public/components/login.html';
+    logoutUser();
 });
 
 onload();

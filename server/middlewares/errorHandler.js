@@ -3,7 +3,7 @@ const handleError = (err, req, res, next) => {
     const errStatusCode = err?.status;
     
     if (!errStatusCode) {
-        return res.status(errStatusCode).send('Internal Server Error');
+        return res.status(500).send({status: 500, message: 'Internal Server Error'});
     }
     return res.status(errStatusCode).send(err);
 };

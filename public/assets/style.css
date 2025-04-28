@@ -63,6 +63,10 @@ body {
     border: 1px solid #8e8d8a;
   }
 
+  textarea {
+    resize: vertical;
+  }
+
   button {
     background: #d8c3a5;
     padding: 10px;
@@ -77,38 +81,48 @@ body {
   }
 }
 
-.register_container {
+.upsert_recipe_container {
   display: flex;
   align-items: center;
   flex-flow: column;
 
-  .register_header {
-    h3 {
-      color: #6e6d67;
-    }
+  .upsert_recipe_header {
+    color: #6e6d67;
   }
 }
 
-.login_container {
-  display: flex;
-  align-items: center;
-  flex-flow: column;
+.toast_container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
 
-  .login_header {
-    h3 {
-      color: #6e6d67;
-    }
+  .toast {
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+  }
+
+  .err_toast {
+    background-color: #e6695c;
   }
 }
 
-.post_recipe_container {
-  display: flex;
-  align-items: center;
-  flex-flow: column;
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .post_recipe_header {
-    h3 {
-      color: #6e6d67;
-    }
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
   }
 }

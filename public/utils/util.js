@@ -10,6 +10,7 @@ export const ERROR_MESSAGES = {
 export const SESSION_STORAGE_KEYS = {
     USERS: 'users',
     LOGGED_IN_USER: 'loggedInUser',
+    JWT_TOKEN: 'JWT_TOKEN'
 };
 
 export const isValidEmail = (email) => {
