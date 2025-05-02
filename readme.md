@@ -19,7 +19,7 @@ You can find SQL Scripts [here](https://github.com/rohitadittya/Recipe-Maker-SUN
 
 ## To start the server
 1. npm i
-2. Add the following properties and the values in the env variables
+2. Add the following properties and the values in the .env file
     1. MYSQL_HOST
     2. MYSQL_USERNAME
     3. MYSQL_PSWD
