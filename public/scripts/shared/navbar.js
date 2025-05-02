@@ -35,5 +35,3 @@ export const initializeNavbar = () => {
     div.appendChild(nav);
     body.prepend(div);
 };
-
-// initializeNavbar();
