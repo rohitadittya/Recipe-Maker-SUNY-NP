@@ -25,7 +25,7 @@ const reconnectWithDatabase = () => {
   con.end(); // Close the existing pool
   con = mysql.createPool({
     ...dbProperties,
-    database: process.env.MYSQL_DB,
+    database: 'recipegram',
   });
 };
 
