@@ -1,6 +1,5 @@
 import Recipe from "../../model/recipe.js";
 import { addRecipe, getRecipeById, updateRecipeById } from "../../services/recipe.service.js";
-import { authGuard } from "../../services/user.service.js";
 
 const recipeForm = document.getElementById('upsertRecipeForm');
 const upsertHeaderElement = document.getElementById('upsertRecipeHeader');

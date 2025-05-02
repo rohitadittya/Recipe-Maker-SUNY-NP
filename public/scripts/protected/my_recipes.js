@@ -1,5 +1,4 @@
 import { deleteRecipeById, getAllRecipesPostedByUser } from "../../services/recipe.service.js";
-import { authGuard } from "../../services/user.service.js";
 import { recipeFeedRenderer } from "../shared/recipeCard.js";
 
 const myRecipeContainer = document.getElementById('myRecipeContainer');
