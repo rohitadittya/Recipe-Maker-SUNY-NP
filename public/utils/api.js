@@ -1,4 +1,4 @@
-import { displayErrToast } from "./errorUtils.js";
+import { showToast } from "../scripts/shared/errorToast.js";
 
 const API_BASE_URL = "http://localhost:3000/api";
 
@@ -40,7 +40,7 @@ export const httpClient = async (apiUrl, method = "GET", body = null, queryParam
     
     if (!response.ok) {
         const err = await response.json();
-        displayErrToast(err)
+        showToast(err, true)
         throw err;
     }
 

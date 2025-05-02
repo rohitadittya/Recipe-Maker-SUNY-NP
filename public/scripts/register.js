@@ -14,7 +14,7 @@ registerForm.addEventListener('submit', async (e) => {
 
     try {
         await registerUser(new User(username, firstname, lastname, email, password));
-        window.location.href = '/components/post_recipe.html';
+        window.location.href = '/components/protected/post_recipe.html';
         return;
     }
     catch (error) {

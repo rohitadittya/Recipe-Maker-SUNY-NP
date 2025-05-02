@@ -42,6 +42,11 @@ body {
   a:hover {
     color: #030202;
   }
+
+  .active {
+    color: #030202;
+    border-bottom: 1px solid #030202;
+  }
 }
 
 .common_form {
@@ -110,6 +115,9 @@ body {
 
   .err_toast {
     background-color: #e6695c;
+  }
+  .success_toast {
+    background-color: #5fb873;
   }
 }
 

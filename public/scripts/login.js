@@ -2,7 +2,6 @@ import { loginUser } from "../services/user.service.js";
 
 const loginForm = document.getElementById("loginForm");
 
-
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById("email").value;
@@ -10,7 +9,7 @@ loginForm.addEventListener('submit', async (e) => {
 
     try {
         await loginUser(email, password);
-        window.location.href = '/components/post_recipe.html';
+        window.location.href = '/components/protected/post_recipe.html';
         return;
     }
     catch (error) {

@@ -1,19 +1,16 @@
-import { getAllRecipes, likeARecipeById } from "../services/recipe.service.js";
-import { authGuard, logoutUser } from "../services/user.service.js";
-import { recipeFeedRenderer } from "../utils/recipeUtils.js";
+import { getAllRecipes, likeARecipeById } from "../../services/recipe.service.js";
+import { authGuard } from "../../services/user.service.js";
+import { recipeFeedRenderer } from "../shared/recipeCard.js";
 
-const logout_anchor = document.getElementById('logout_anchor');
 const recipeFeedContainer = document.getElementById('recipeFeedContainer');
 
 let recipeList = [];
 
 const onload = async () => {
-    authGuard(); //check if the user is logged in, jwt token expired
     await renderRecipes();
 };
 
 const likeRecipe = async (recipeId) => {
-    console.log("Like a recipe with ID:", recipeId);
     try {
         const res = await likeARecipeById(recipeId);
         if (res) {
@@ -35,8 +32,7 @@ const likeRecipe = async (recipeId) => {
                 return recipe;
             });
         }
-
-        console.log("Recipe liked/ unliked successfully:", recipeId);
+        console.info("Recipe liked/ unliked successfully:", recipeId);
     }
     catch (error) {
         console.error("Error deleting recipe:", error?.message);
@@ -45,7 +41,7 @@ const likeRecipe = async (recipeId) => {
 };
 
 const comment = async (recipeId) => {
-    window.location.href = `/components/comment.html?recipeId=${recipeId}`;
+    window.location.href = `/components/protected/comment.html?recipeId=${recipeId}`;
     return;
 }
 
@@ -60,10 +56,5 @@ const renderRecipes = async () => {
         return;
     }
 };
-
-logout_anchor.addEventListener('click', (e) => {
-    e.preventDefault();
-    logoutUser();
-});
 
 onload();

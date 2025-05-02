@@ -72,4 +72,4 @@ export const recipeFeedRenderer = (srcContainer, recipeList, deleteBtnFn = null,
 
         srcContainer.appendChild(card);
     });
-}
+};

@@ -1,21 +1,18 @@
-import { deleteRecipeById, getAllRecipesPostedByUser } from "../services/recipe.service.js";
-import { authGuard, logoutUser } from "../services/user.service.js";
-import { recipeFeedRenderer } from "../utils/recipeUtils.js";
+import { deleteRecipeById, getAllRecipesPostedByUser } from "../../services/recipe.service.js";
+import { authGuard } from "../../services/user.service.js";
+import { recipeFeedRenderer } from "../shared/recipeCard.js";
 
-
-const logout_anchor = document.getElementById('logout_anchor');
 const myRecipeContainer = document.getElementById('myRecipeContainer');
 
 const onload = async () => {
-    authGuard(); //check if the user is logged in, jwt token expired
     await renderRecipes();
 };
 
 const deleteRecipe = async (recipeId) => {
-    console.log("Deleting recipe with ID:", recipeId);
+    console.info("Deleting recipe with ID:", recipeId);
     try {
         await deleteRecipeById(recipeId);
-        console.log("Recipe deleted successfully:", recipeId);
+        console.info("Recipe with id", recipeId, "deleted successfully");
         await renderRecipes();
     }
     catch (error) {
@@ -25,8 +22,8 @@ const deleteRecipe = async (recipeId) => {
 }
 
 const editRecipe = async (recipeId) => {
-    console.log("Editing recipe with ID:", recipeId);
-    window.location.href = `/components/post_recipe.html?recipeId=${recipeId}`;
+    console.info("Editing recipe with ID:", recipeId);
+    window.location.href = `/components/protected/post_recipe.html?recipeId=${recipeId}`;
     return;
 }
 
@@ -41,10 +38,5 @@ const renderRecipes = async () => {
         return;
     }
 };
-
-logout_anchor.addEventListener('click', (e) => {
-    e.preventDefault();
-    logoutUser();
-});
 
 onload();

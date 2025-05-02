@@ -4,20 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/style.css" />
-    <script type="module" src="/scripts/post_recipe.js" defer></script>
+    <script type="module" src="/scripts/shared/index.js"></script>
+    <script type="module" src="/scripts/protected/post_recipe.js" defer></script>
     <title>Post/ edit a recipe</title>
   </head>
   <body>
-    <div class="navbar">
-      <nav>
-        <ul>
-          <li><img class="logo" src="/assets/images/logo.jpeg" /></li>
-          <li><a href="/components/my_recipes.html">My recipes</a></li>
-          <li><a href="/components/recipe_feed.html">Feed</a></li>
-          <li><a href="#" id="logout_anchor">Logout</a></li>
-        </ul>
-      </nav>
-    </div>
+    <!-- Nav bar will be rendered dynamically -->
     <div class="upsert_recipe_container">
       <div>
         <h3 class="upsert_recipe_header" id="upsertRecipeHeader">Post a recipe</h3>

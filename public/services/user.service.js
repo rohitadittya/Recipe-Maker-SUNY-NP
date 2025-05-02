@@ -8,6 +8,11 @@ const setSessionStorage = (user) => {
     window.sessionStorage.setItem(SESSION_STORAGE_KEYS.JWT_TOKEN, user.authToken);
 }
 
+const removeSessionStorage = () => {
+    window.sessionStorage.removeItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER);
+    window.sessionStorage.removeItem(SESSION_STORAGE_KEYS.JWT_TOKEN);
+};
+
 const isJWTTokenExpired = () => {
     const token = window.sessionStorage.getItem(SESSION_STORAGE_KEYS.JWT_TOKEN) || null;
     if (token) {
@@ -15,7 +20,6 @@ const isJWTTokenExpired = () => {
         const decodedPayload = JSON.parse(atob(payloadBase64));
         const exp = decodedPayload.exp;
         const now = Math.floor(Date.now() / 1000);
-        console.log("exp", exp < now)
         return exp < now;
     }
 
@@ -23,19 +27,18 @@ const isJWTTokenExpired = () => {
 }
 
 export const isUserLoggedIn = () => {
-    isJWTTokenExpired();
-    const loggedInUser = window.sessionStorage.getItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER) || false;
-    return loggedInUser ? true : false;
+    isJWTTokenExpired() && removeSessionStorage();
+    return (window.sessionStorage.getItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER) && true) || false;
 }
 
 export const getLoggedInUser = () => {
-    isJWTTokenExpired();
+    isJWTTokenExpired() && removeSessionStorage();
     const loggedInUser = window.sessionStorage.getItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER) || false;
     return loggedInUser ? JSON.parse(loggedInUser) : null;
 }
 
 export const authGuard = () => {
-    isJWTTokenExpired() && logoutUser();
+    isJWTTokenExpired() && logoutUser(true);
 }
 
 export const loginUser = async (email, password) => {
@@ -54,8 +57,10 @@ export const registerUser = async (userObj) => {
     }
 }
 
-export const logoutUser = () => {
-    window.sessionStorage.removeItem(SESSION_STORAGE_KEYS.LOGGED_IN_USER);
-    window.sessionStorage.removeItem(SESSION_STORAGE_KEYS.JWT_TOKEN);
+export const logoutUser = (showUnAuthErrMsg=false) => {
+    if (showUnAuthErrMsg) {
+        console.error("Auth Guard: Unauthorized access to protected route");
+    }
+    removeSessionStorage();
     window.location.href = '/components/login.html';
 }

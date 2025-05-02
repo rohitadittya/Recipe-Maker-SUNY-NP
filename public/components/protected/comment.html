@@ -6,23 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/assets/style.css" />
     <link rel="stylesheet" href="/assets/recipe_feed.css" />
-    <script type="module" src="/scripts/comment.js" defer></script>
+    <script type="module" src="/scripts/shared/index.js"></script>
+    <script type="module" src="/scripts/protected/comment.js" defer></script>
     <title>Share your comment</title>
 </head>
 
 <body>
-    <div class="navbar">
-        <nav>
-            <ul>
-                <li><img class="logo" src="/assets/images/logo.jpeg" /></li>
-                <li><a href="/components/post_recipe.html">Post a recipe</a></li>
-                <li><a href="/components/my_recipes.html">My recipes</a></li>
-                <li><a href="/components/recipe_feed.html">Feed</a></li>
-                <li><a href="#" id="logout_anchor">Logout</a></li>
-            </ul>
-        </nav>
-    </div>
+    <!-- Nav bar will be rendered dynamically -->
     <div class="recipe_comment_container" id="recipeCommentContainer">
+        <div class="recipe_not_found hidden" id="recipeNotFound">
+            Sorry, unable to load the recipe. Please try again.
+        </div>
         <!-- The selected recipe and comments will be rendered here -->
         <div class="recipe_comment_feed" id="recipeCommentFeed"></div>
         <div class="recipe_comment_section" id="recipeCommentSection">
