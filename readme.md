@@ -23,6 +23,5 @@ You can find SQL Scripts [here](https://github.com/rohitadittya/Recipe-Maker-SUN
     1. MYSQL_HOST
     2. MYSQL_USERNAME
     3. MYSQL_PSWD
-    4. MYSQL_DB
-    5. JWT_SECRET
+    4. JWT_SECRET
  3. npm run dev
