@@ -10,14 +10,14 @@ const fetchRecipeById = async (loggedInUser, id) => {
 const fetchAllUserPostedRecipes = async (userId) => {
     const sql = `SELECT r.*, COUNT(lk.UserId) as likes, MAX(CASE WHEN lk.UserId = ? THEN 1 ELSE 0 END) AS IsLikedByLoggedInUser 
                     FROM RECIPE r LEFT JOIN USER_RECIPE_LIKE lk 
-                        on r.RecipeId = lk.RecipeId WHERE r.UserId=? GROUP BY r.RecipeId`;
+                        on r.RecipeId = lk.RecipeId WHERE r.UserId=? GROUP BY r.RecipeId ORDER BY r.RecipeId DESC`;
     return await db.query(sql, [userId, userId]);
 };
 
 const fetchAllRecipes = async (loggedInUser) => {
     const sql = `SELECT r.*, COUNT(lk.UserId) as likes, MAX(CASE WHEN lk.UserId = ? THEN 1 ELSE 0 END) AS IsLikedByLoggedInUser 
                     FROM RECIPE r LEFT JOIN USER_RECIPE_LIKE lk 
-                        on r.RecipeId = lk.RecipeId GROUP BY r.RecipeId`;
+                        on r.RecipeId = lk.RecipeId GROUP BY r.RecipeId ORDER BY r.RecipeId DESC`;
     return await db.query(sql, [loggedInUser]);
 };
 

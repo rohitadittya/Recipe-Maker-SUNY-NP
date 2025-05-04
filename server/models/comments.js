@@ -6,7 +6,7 @@ const getComment = async (commentId, loggedInUserId) => {
 };
 
 const getAllCommentsByRecipeId = async (recipeId) => {
-    const sql = `SELECT * FROM COMMENT WHERE RecipeId=?`;
+    const sql = `SELECT * FROM COMMENT WHERE RecipeId=? ORDER BY CommentId DESC`;
     return await db.query(sql, [recipeId]);
 }
 

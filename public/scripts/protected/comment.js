@@ -86,7 +86,7 @@ const createCommentsElements = (comment) => {
 
 const renderComments = (newComment=null) => {
     if (newComment) {
-        recipeCommentsList.appendChild(createCommentsElements(newComment));
+        recipeCommentsList.prepend(createCommentsElements(newComment));
         return;
     }
 

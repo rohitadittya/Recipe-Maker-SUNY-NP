@@ -19,7 +19,7 @@ const checkIfRecipeOwnedByUserHandler = async (recipeId, loggedInUserId) => {
 
 // Functions to handle API
 const fetchRecipeById = async (req) => {
-    const recipe = await fetchRecipeByIdHandler(req.params.id,getLoggedInUserId(req));
+    const recipe = await fetchRecipeByIdHandler(req.params.id, getLoggedInUserId(req));
     return mapRecipeDAOToRecipe(recipe);
 };
 
@@ -45,7 +45,7 @@ const addRecipe = async (req) => {
     if (!recipe) {
         throw { message: 'Unable to create recipe', status: 500 };
     }
-    return await recipeModel.fetchRecipeById(recipe.insertId);
+    return mapRecipeDAOToRecipe(await fetchRecipeByIdHandler(recipe.insertId, getLoggedInUserId(req)));
 };
 
 const updateRecipe = async (req) => {
@@ -61,7 +61,7 @@ const updateRecipe = async (req) => {
     if (!recipe) {
         throw { message: 'Unable to edit recipe', status: 500 };
     }
-    return await recipeModel.fetchRecipeById(req.params.id);
+    return mapRecipeDAOToRecipe(await fetchRecipeByIdHandler(req.params.id, getLoggedInUserId(req)));
 };
 
 const deleteRecipe = async (req) => {

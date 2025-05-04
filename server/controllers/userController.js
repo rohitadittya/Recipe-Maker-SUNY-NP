@@ -11,7 +11,19 @@ const register = async (req, res) => {
     return res.status(201).send(user);
 };
 
+const updateUser = async (req, res) => {
+    const user = await userService.updateUser(req);
+    return res.status(200).send(user);
+}
+
+const fetchAllUsers = async (req, res) => {
+    const users = await userService.fetchAllUsers();
+    return res.status(200).send(users);
+};
+
 module.exports = {
     login,
-    register
+    register,
+    updateUser,
+    fetchAllUsers
 };
