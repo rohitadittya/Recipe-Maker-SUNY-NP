@@ -25,3 +25,6 @@ You can find SQL Scripts [here](https://github.com/rohitadittya/Recipe-Maker-SUN
     3. MYSQL_PSWD
     4. JWT_SECRET
  3. npm run dev
+
+## You can find the postman collection [here](https://github.com/rohitadittya/Recipe-Maker-SUNY-NP/tree/main/server/postmanCollection)
+Import the [collection](https://github.com/rohitadittya/Recipe-Maker-SUNY-NP/blob/main/server/postmanCollection/SUNY%20Recipe%20Maker%20Appln.postman_collection.json) and the [environment_variables](https://github.com/rohitadittya/Recipe-Maker-SUNY-NP/blob/main/server/postmanCollection/recipe_app_local.postman_environment.json).
